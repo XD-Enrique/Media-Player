@@ -67,6 +67,7 @@ volume.addEventListener('input', () => {
 
 audio.addEventListener('ended', () => {
   loadTrack(currentIndex + 1);
+  playPauseBtn.textContent = '⏸';
   audio.play();
 });
 document.addEventListener('DOMContentLoaded', () => {
