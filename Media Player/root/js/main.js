@@ -14,6 +14,8 @@ const playlist = [
   { src: 'songs/sugar.mp3', title: 'Sugar - System Of A Down', cover: 'covers/SoadAlbum.jpg' }
 ];
 
+let anterior = [];
+let proximo = [];
 let currentIndex = 0;
 
 // Create playlist items dynamically
@@ -21,6 +23,7 @@ playlist.forEach((track, index) => {
   const li = document.createElement('li');
   li.textContent = track.title;
   li.addEventListener('click', () => {
+    anterior.push(currentIndex);
     loadTrack(index);
     audio.play();
     updateActive();
@@ -61,21 +64,47 @@ playPauseBtn.addEventListener('click', () => {
 });
 
 prevBtn.addEventListener('click', () => {
-  loadTrack(currentIndex - 1);
-  audio.play();
-  playPauseBtn.textContent = '⏸';
+  lastIndex = anterior.length - 1;
+  if (lastIndex >= 0) {
+    proximo.push(currentIndex); // guarda o índice atual em próximo
+    loadTrack(anterior[lastIndex]); // verifica se anterior está definido
+    anterior.pop(); // remove o último índice após voltar
+    audio.play();
+    playPauseBtn.textContent = '⏸';
+  }
 });
 
 nextBtn.addEventListener('click', () => {
-  loadTrack(currentIndex + 1);
-  audio.play();
-  playPauseBtn.textContent = '⏸';
+  lastIndex = proximo.length - 1;
+  if (lastIndex >= 0) {
+    anterior.push(currentIndex); // guarda o índice atual em anterior
+    loadTrack(proximo[lastIndex]);
+    proximo.pop(); // remove o último índice após avançar
+    audio.play();
+    playPauseBtn.textContent = '⏸';
+  }else{
+    anterior.push(currentIndex); // guarda o índice atual em anterior
+    loadTrack(currentIndex + 1);
+    audio.play();
+    playPauseBtn.textContent = '⏸';
+  }
 });
 
 // play next track when current ends
 audio.addEventListener('ended', () => {
-  loadTrack(currentIndex + 1);
+  lastIndex = proximo.length - 1;
+  if (lastIndex >= 0) {
+  anterior.push(currentIndex); // guarda o índice atual em anterior
+  loadTrack(proximo[lastIndex]);
+  proximo.pop(); // remove o último índice após avançar
   audio.play();
+  playPauseBtn.textContent = '⏸';
+  }else{
+    anterior.push(currentIndex); // guarda o índice atual em anterior
+    loadTrack(currentIndex + 1);
+    audio.play();
+    playPauseBtn.textContent = '⏸';
+  }
 });
 
 // Update progress bar and volume control
