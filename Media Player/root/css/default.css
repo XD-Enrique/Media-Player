@@ -42,7 +42,7 @@ button {
 }
 
 button:hover {
-  background: #777;
+  background: #4f46e5;
 }
 
 .timeline {
@@ -59,26 +59,71 @@ input[type="range"] {
   gap: 20px;
 }
 
+/* Container da playlist */
 #playlist {
-  list-style: none;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  margin-left: 20px;
+  background: #555;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   padding: 0;
+  list-style: none;
 }
 
+/* Cada música (item da lista) */
 #playlist li {
-  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #555;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.2s ease-in-out;
 }
 
+/* Último item sem borda */
+#playlist li:last-child {
+  border-bottom: none;
+}
+
+/* Hover nos itens */
 #playlist li:hover {
-  background: #444;
+  background: #555;
+  color: #ffffff;
 }
 
+/* Badge lateral (ex: número, NEW, etc) testar com gif da audio tocando */
+#playlist li span {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #e0e0e0;
+  color: #444;
+  transition: all 0.2s;
+}
+
+/* Hover no badge junto com o item */
+#playlist li:hover span {
+  background: #4f46e5;
+  color: #555;
+}
+
+/* Música atual tocando */
 #playlist li.active {
-  background: #777;
-  font-weight: bold;
-  color: rgb(30, 0, 85);
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+#playlist li.active span {
+  background: #555;
+  color: #4f46e5;
 }
 
 #track-cover {
