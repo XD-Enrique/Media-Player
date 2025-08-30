@@ -112,21 +112,31 @@ audio.addEventListener('ended', () => {
 });
 
 // Update progress bar and volume control
-audio.addEventListener('timeupdate', () => {
-  progress.max = Math.floor(audio.duration);
-  progress.value = Math.floor(audio.currentTime);
-});
+function updateSliderFill(slider) {
+  const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+  slider.style.setProperty('--value', value + '%');
+}
 
 progress.addEventListener('input', () => {
   audio.currentTime = progress.value;
+  updateSliderFill(progress);
 });
 
 volume.addEventListener('input', () => {
   audio.volume = volume.value;
+  updateSliderFill(volume);
+});
+
+audio.addEventListener('timeupdate', () => {
+  progress.max = Math.floor(audio.duration);
+  progress.value = Math.floor(audio.currentTime);
+  updateSliderFill(progress);
 });
 
 // initialize volume slider
 document.addEventListener('DOMContentLoaded', () => {
   volume.value = audio.volume;
   loadTrack(currentIndex);
+  updateSliderFill(progress);
+  updateSliderFill(volume);
 });

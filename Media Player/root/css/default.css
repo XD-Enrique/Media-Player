@@ -49,8 +49,56 @@ button:hover {
   margin-bottom: 15px;
 }
 
+/* Remove o estilo padrão */
 input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #444; /* fundo da barra */
+  outline: none;
+  cursor: pointer;
+}
+
+/* Parte já percorrida - Chrome, Edge, Safari */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #69239e var(--value, 0%), #444 var(--value, 0%));
+}
+
+/* Parte já percorrida - Firefox */
+input[type="range"]::-moz-range-progress {
+  background: #69239e;
+  height: 6px;
+  border-radius: 3px;
+}
+input[type="range"]::-moz-range-track {
+  background: #444;
+  height: 6px;
+  border-radius: 3px;
+}
+
+/* Thumb (bolinha) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #69239e;
+  cursor: pointer;
+  margin-top: -4px; /* centralizar na barra */
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #69239e;
+  cursor: pointer;
 }
 
 .album-playlist-container {
@@ -63,7 +111,7 @@ input[type="range"] {
 #playlist {
   display: flex;
   flex-direction: column;
-  width: 220px;
+  width: 100%;
   margin-left: 20px;
   background: #555;
   border-radius: 8px;
