@@ -9,9 +9,9 @@ const trackCover = document.getElementById('track-cover');
 const playlistEl = document.getElementById('playlist');
 
 const playlist = [
-  { src: 'songs/scar tissue.mp3', title: 'Scar Tissue - Red Hot Chili Peppers', cover: 'covers/californicationAlbum.jpg' },
-  { src: 'songs/staying alive.mp3', title: 'Staying Alive - Bee Gees', cover: 'covers/stayingAliveAlbum.jpg' },
-  { src: 'songs/sugar.mp3', title: 'Sugar - System Of A Down', cover: 'covers/SoadAlbum.jpg' }
+  { src: 'assets/songs/scar tissue.mp3', title: 'Scar Tissue - Red Hot Chili Peppers', cover: 'assets/covers/californicationAlbum.jpg' },
+  { src: 'assets/songs/staying alive.mp3', title: 'Staying Alive - Bee Gees', cover: 'assets/covers/stayingAliveAlbum.jpg' },
+  { src: 'assets/songs/sugar.mp3', title: 'Sugar - System Of A Down', cover: 'assets/covers/SoadAlbum.jpg' }
 ];
 
 let anterior = [];
