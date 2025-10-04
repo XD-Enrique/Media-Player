@@ -20,24 +20,22 @@ Todas as músicas utilizadas são **livres de direitos autorais** (*NCS Releases
 ## 🗂️ Estrutura do Projeto
 
 ```
-Media Player/
+Media-Player/
 │
-├── root/
-│   ├── assets/
-│   │   ├── covers/        # Capas das músicas
-│   │   ├── img/           # Ícones e imagens do player
-│   │   └── songs/         # Arquivos de áudio (NCS)
-│   │
-│   ├── css/
-│   │   └── style.css      # Estilos visuais
-│   │
-│   ├── js/
-│   │   └── main.js        # Lógica do player
-│   │
-│   ├── index.html         # Página principal
-│   └── README.md
+├── assets/
+│   ├── covers/        # Capas das músicas
+│   ├── img/           # Ícones e imagens do player
+│   └── songs/         # Arquivos de áudio (NCS)
 │
-└── .gitattributes
+├── css/
+│   └── style.css      # Estilos visuais
+│
+├── js/
+│   └── main.js        # Lógica do player
+│
+├── index.html         # Página principal
+├── README.md          # Documentação do projeto
+└── .gitattributes     # Configurações de versionamento
 ```
 
 ---
@@ -60,55 +58,45 @@ Media Player/
 
 As faixas são de uso livre com créditos à [NoCopyrightSounds](https://ncs.io/):
 
-Song: waera - harinezumi
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/harinezumi
-Watch: http://ncs.lnk.to/harinezumiAT/youtube
+- **waera - harinezumi**  
+  [Download/Stream](http://ncs.io/harinezumi) | [YouTube](http://ncs.lnk.to/harinezumiAT/youtube)
 
-Song: Carpe & Zachz Winner - wooyawooya
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/wooyawooya
-Watch: http://ncs.lnk.to/wooyawooyaAT/youtube
+- **Carpe & Zachz Winner - wooyawooya**  
+  [Download/Stream](http://ncs.io/wooyawooya) | [YouTube](http://ncs.lnk.to/wooyawooyaAT/youtube)
 
-Song: Mazare, DriveDrive! - Honest
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/honest
-Watch: http://ncs.lnk.to/honestAT/youtube
+- **Mazare, DriveDrive! - Honest**  
+  [Download/Stream](http://ncs.io/honest) | [YouTube](http://ncs.lnk.to/honestAT/youtube)
 
-Song: criticaleye, Shiro, dolshi - Echoes
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/ce\_echoes
-Watch: http://ncs.lnk.to/ce\_echoesAT/youtube
+- **criticaleye, Shiro, dolshi - Echoes**  
+  [Download/Stream](http://ncs.io/ce_echoes) | [YouTube](http://ncs.lnk.to/ce_echoesAT/youtube)
 
-Song: More Plastic - So Good
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/SoGood
-Watch: http://ncs.lnk.to/SoGoodAT/youtube
+- **More Plastic - So Good**  
+  [Download/Stream](http://ncs.io/SoGood) | [YouTube](http://ncs.lnk.to/SoGoodAT/youtube)
 
-Song: Youth - Stuck in my head
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/stuckinmyhead
-Watch: http://ncs.lnk.to/stuckinmyheadAT/youtube
-
-
+- **Youth - Stuck in my head**  
+  [Download/Stream](http://ncs.io/stuckinmyhead) | [YouTube](http://ncs.lnk.to/stuckinmyheadAT/youtube)
 
 ---
 
 ## 💡 Como Usar
 
-1. Faça o clone do repositório:
+1. Clone o repositório:
    ```bash
-   git clone https://github.com/seuusuario/media-player.git
+   git clone https://github.com/seuusuario/Media-Player.git
    ```
-
-2. Abra o projeto no seu editor (VS Code recomendado)
-
+2. Abra o projeto no seu editor (VS Code recomendado).
 3. Inicie o player abrindo o arquivo:
    ```
-   root/index.html
+   index.html
    ```
-
 4. Toque as faixas, ajuste o volume e explore o visual ✨
+
+---
+
+## 🌐 Deploy Online
+
+Você pode acessar o player diretamente pelo GitHub Pages:  
+[https://xd-enrique.github.io/Media-Player](https://xd-enrique.github.io/Media-Player)
 
 ---
 
