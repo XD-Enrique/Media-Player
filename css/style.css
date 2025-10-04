@@ -33,6 +33,7 @@ body {
 }
 
 button {
+  font-family: 'Basic', Arial, sans-serif;
   background: #555;
   border: none;
   color: white;
