@@ -50,7 +50,7 @@ Media-Player/
 
 ## 🖼️ Demonstração
 
-![Media Player Preview](assets/img/Sidelmg.png)
+![Media Player Preview](assets/img/readmeimg.png)
 
 ---
 
