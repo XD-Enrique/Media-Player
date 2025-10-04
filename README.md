@@ -82,7 +82,7 @@ As faixas são de uso livre com créditos à [NoCopyrightSounds](https://ncs.io/
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seuusuario/Media-Player.git
+   git clone https://github.com/XD-Enrique/Media-Player.git
    ```
 2. Abra o projeto no seu editor (VS Code recomendado).
 3. Inicie o player abrindo o arquivo:
