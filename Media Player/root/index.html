@@ -17,7 +17,7 @@
     <audio id="audio-player" preload="metadata"></audio>
 
   <div class="album-playlist-container">
-    <img id="track-cover" src="assets/covers/californicationAlbum.jpg" alt="Capa do Álbum">
+    <img id="track-cover" src="assets/covers" alt="Capa do Álbum">
 
     <ul id="playlist"></ul>
   </div>
@@ -36,6 +36,11 @@
 
     <div class="timeline">
       <input type="range" id="progress" value="0" min="0" max="1" step="1" />
+    </div>
+
+    <div class="time-info">
+      <span id="current-time">0:00</span>
+      <span id="total-time">0:00</span>
     </div>
 
     <div class="volume-control" style="text-align:center;">

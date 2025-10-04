@@ -49,6 +49,15 @@ button:hover {
   margin-bottom: 15px;
 }
 
+.time-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #ccc;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
 /* Remove o estilo padrão */
 input[type="range"] {
   -webkit-appearance: none;
@@ -115,10 +124,24 @@ input[type="range"]::-moz-range-thumb {
   margin-left: 20px;
   background: #555;
   border-radius: 8px;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: 200px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   padding: 0;
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#playlist::-webkit-scrollbar {
+  width: 6px;
+}
+#playlist::-webkit-scrollbar-thumb {
+  background-color: #69239e;
+  border-radius: 10px;
+}
+#playlist::-webkit-scrollbar-track {
+  background-color: #444;
 }
 
 /* Cada música (item da lista) */
@@ -146,7 +169,7 @@ input[type="range"]::-moz-range-thumb {
   color: #ffffff;
 }
 
-/* Badge lateral (ex: número, NEW, etc) testar com gif da audio tocando */
+/* Badge lateral (ex: número, NEW, etc) testar com gif da audio tocando 
 #playlist li span {
   padding: 4px 8px;
   border-radius: 12px;
@@ -157,11 +180,12 @@ input[type="range"]::-moz-range-thumb {
   transition: all 0.2s;
 }
 
-/* Hover no badge junto com o item */
+ Hover no badge junto com o item 
 #playlist li:hover span {
   background: #69239e;
   color: #555;
 }
+*/ 
 
 /* Música atual tocando */
 #playlist li.active {
@@ -183,10 +207,3 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#playlist{
-  display: flex;
-  justify-content: end;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
