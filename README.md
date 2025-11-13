@@ -100,15 +100,6 @@ Você pode acessar o player diretamente pelo GitHub Pages:
 
 ---
 
-## 🧩 Futuras Melhorias
-
-- 🔁 Modo **loop e shuffle**
-- 🔊 Visualizador de ondas animado (com *Lottie* ou *Canvas*)
-- 🌗 Modo claro/escuro
-- 📱 Layout totalmente responsivo
-
----
-
 ## 🧑‍💻 Autor
 
 **Enrique Zoz de Souza**  
