@@ -2,6 +2,7 @@ const audio = document.getElementById('audio-player');
 const playPauseBtn = document.getElementById('play-pause');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
+const muteBtn = document.getElementById('mute-unmute');
 const progress = document.getElementById('progress');
 const currentTimeEl = document.getElementById('current-time');
 const totalTimeEl = document.getElementById('total-time');
@@ -101,6 +102,11 @@ nextBtn.addEventListener('click', () => {
     audio.play();
     playPauseBtn.textContent = '⏸';
   }
+});
+
+muteBtn.addEventListener('click', () => {
+  audio.muted = !audio.muted;
+  muteBtn.textContent = audio.muted ? '🔇' : '🔊';
 });
 
 // próxima música automática
