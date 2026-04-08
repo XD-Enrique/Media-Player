@@ -159,12 +159,6 @@ volume.addEventListener('input', () => {
   updateSliderFill(volume);
 });
 
-audio.addEventListener('timeupdate', () => {
-  progress.max = Math.floor(audio.duration);
-  progress.value = Math.floor(audio.currentTime);
-  updateSliderFill(progress);
-});
-
 // inicialização do player, sincroniza volume e carrega a primeira faixa
 document.addEventListener('DOMContentLoaded', () => {
   volume.value = audio.volume;
