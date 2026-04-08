@@ -20,6 +20,8 @@ const playlist = [
   { src: 'assets/songs/Zachz Winner, Carpe - wooyawooya [NCS Release].mp3', title: 'wooyawooya - Zachz Winner, Carpe [NCS Release]', cover: 'assets/covers/wooyawooya.jpg' },
 ];
 
+let clickTimer = null; // controlar dbclick
+
 // pilha para controlar músicas anteriores e próximas
 let anterior = [];
 let proximo = [];
@@ -85,18 +87,40 @@ playPauseBtn.addEventListener('click', () => {
   }
 });
 
-prevBtn.addEventListener('click', () => {
-  audio.currentTime = 0;
-});
+// prevBtn.addEventListener('click', () => {
+//   audio.currentTime = 0;
+// });
 
-prevBtn.addEventListener('dblclick', () => {
-  const lastIndex = anterior.length - 1;
-  if (lastIndex >= 0) {
-    proximo.push(currentIndex); // guarda o índice atual em proximo
-    loadTrack(anterior[lastIndex]); // verifica se anterior está definido
-    anterior.pop(); // remove o último índice após voltar
-    audio.play();
-    playPauseBtn.textContent = '⏸';
+// prevBtn.addEventListener('dblclick', () => {
+//   const lastIndex = anterior.length - 1;
+//   if (lastIndex >= 0) {
+//     proximo.push(currentIndex); // guarda o índice atual em proximo
+//     loadTrack(anterior[lastIndex]); // verifica se anterior está definido
+//     anterior.pop(); // remove o último índice após voltar
+//     audio.play();
+//     playPauseBtn.textContent = '⏸';
+//   }
+// });
+
+prevBtn.addEventListener('click', () =>{
+  if (clickTimer) {
+    clearTimeout(clickTimer); // se ja tiver timer, duplo clique
+    clickTimer = null;
+  
+//logica do pulo duplo
+   const lastIndex = anterior.length - 1
+   if (lastIndex >= 0) {
+      proximo.push(currentIndex);
+      loadTrack(anterior[lastIndex]);
+      anterior.pop();
+      audio.play();
+      playPauseBtn.textContent = '⏸'; 
+    }
+  } else { 
+    clickTimer = setTimeout(() => {
+      clickTimer = null;
+      audio.currentTime = 0; //logica clique simples
+    }, 250);
   }
 });
 
