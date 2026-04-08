@@ -62,6 +62,18 @@ function updateActive() {
   });
 }
 
+function playNext (){
+  const lastIndex = proximo.length - 1;
+  anterior.push(currentIndex);
+  if (lastIndex >= 0){
+    loadTrack(proximo.pop());
+  } else {
+    loadTrack(currentIndex + 1);
+  }
+  audio.play();
+  playPauseBtn.textContent = '⏸';
+}
+
 // botoes de controle
 playPauseBtn.addEventListener('click', () => {
   if (audio.paused) {
@@ -78,7 +90,7 @@ prevBtn.addEventListener('click', () => {
 });
 
 prevBtn.addEventListener('dblclick', () => {
-  lastIndex = anterior.length - 1;
+  const lastIndex = anterior.length - 1;
   if (lastIndex >= 0) {
     proximo.push(currentIndex); // guarda o índice atual em proximo
     loadTrack(anterior[lastIndex]); // verifica se anterior está definido
@@ -88,43 +100,14 @@ prevBtn.addEventListener('dblclick', () => {
   }
 });
 
-nextBtn.addEventListener('click', () => {
-  lastIndex = proximo.length - 1;
-  if (lastIndex >= 0) {
-    anterior.push(currentIndex); // guarda o índice atual em anterior
-    loadTrack(proximo[lastIndex]);
-    proximo.pop(); // remove o último índice após avançar
-    audio.play();
-    playPauseBtn.textContent = '⏸';
-  }else{
-    anterior.push(currentIndex); // guarda o índice atual em anterior
-    loadTrack(currentIndex + 1);
-    audio.play();
-    playPauseBtn.textContent = '⏸';
-  }
-});
+nextBtn.addEventListener('click', playNext);
 
 muteBtn.addEventListener('click', () => {
   audio.muted = !audio.muted;
   muteBtn.textContent = audio.muted ? '🔇' : '🔊';
 });
 
-// próxima música automática
-audio.addEventListener('ended', () => {
-  lastIndex = proximo.length - 1;
-  if (lastIndex >= 0) {
-  anterior.push(currentIndex); // guarda o índice atual em anterior
-  loadTrack(proximo[lastIndex]);
-  proximo.pop(); // remove o último índice após avançar
-  audio.play();
-  playPauseBtn.textContent = '⏸';
-  }else{
-    anterior.push(currentIndex); // guarda o índice atual em anterior
-    loadTrack(currentIndex + 1);
-    audio.play();
-    playPauseBtn.textContent = '⏸';
-  }
-});
+audio.addEventListener('ended', playNext);
 
 // atualiza as barras de progresso e o tempo da música
 function updateSliderFill(slider) {
