@@ -129,13 +129,18 @@ nextBtn.addEventListener('click', playNext);
 muteBtn.addEventListener('click', () => {
   audio.muted = !audio.muted;
   muteBtn.textContent = audio.muted ? '🔇' : '🔊';
+  updateSliderFill(volume);
 });
 
 audio.addEventListener('ended', playNext);
 
 // atualiza as barras de progresso e o tempo da música
 function updateSliderFill(slider) {
-  const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+  let currentValue = slider.value;
+  if (slider === volume && audio.muted) {
+    currentValue = 0;
+  }
+  const value = (currentValue - slider.min) / (slider.max - slider.min) * 100;
   slider.style.setProperty('--value', value + '%');
 }
 
