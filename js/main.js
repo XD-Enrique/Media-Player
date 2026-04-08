@@ -87,21 +87,6 @@ playPauseBtn.addEventListener('click', () => {
   }
 });
 
-// prevBtn.addEventListener('click', () => {
-//   audio.currentTime = 0;
-// });
-
-// prevBtn.addEventListener('dblclick', () => {
-//   const lastIndex = anterior.length - 1;
-//   if (lastIndex >= 0) {
-//     proximo.push(currentIndex); // guarda o índice atual em proximo
-//     loadTrack(anterior[lastIndex]); // verifica se anterior está definido
-//     anterior.pop(); // remove o último índice após voltar
-//     audio.play();
-//     playPauseBtn.textContent = '⏸';
-//   }
-// });
-
 prevBtn.addEventListener('click', () =>{
   if (clickTimer) {
     clearTimeout(clickTimer); // se ja tiver timer, duplo clique
