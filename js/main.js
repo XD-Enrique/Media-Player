@@ -153,6 +153,13 @@ audio.addEventListener('timeupdate', () => {
 
 volume.addEventListener('input', () => {
   audio.volume = volume.value;
+  const volumeValue = parseFloat(volume.value);
+  if (volumeValue === 0) {
+    muteBtn.textContent = '🔇';
+  } else {
+    muteBtn.textContent = '🔊';
+    audio.muted = false
+  }
   updateSliderFill(volume);
 });
 
