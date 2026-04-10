@@ -111,9 +111,15 @@ prevBtn.addEventListener('click', () =>{
 
 nextBtn.addEventListener('click', playNext);
 
+function storageValue(value){
+  localStorage.setItem("volumeAnterior", value);
+  return 0;
+}
+
 muteBtn.addEventListener('click', () => {
   audio.muted = !audio.muted;
   muteBtn.textContent = audio.muted ? '🔇' : '🔊';
+  volume.value = audio.muted ? storageValue(volume.value) : localStorage.getItem("volumeAnterior");
   updateSliderFill(volume);
 });
 
