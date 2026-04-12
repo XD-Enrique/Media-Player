@@ -1,25 +1,26 @@
-# 🎧 Media Player NCS
+# Media Player
 
-Um **player de música moderno e minimalista** desenvolvido em **HTML, CSS e JavaScript puro**, com suporte a **playlist dinâmica, barra de progresso animada, controle de volume** e **rolagem automática até a faixa atual**.  
-Todas as músicas utilizadas são **livres de direitos autorais** (*NCS Releases*).
+Um reprodutor de mídia responsivo e interativo construído inteiramente com HTML, CSS e JavaScript puro (Vanilla JS). Este projeto foi desenvolvido para treinar o domínio de manipulação do DOM, gerenciamento de estado complexo e boas práticas de interface de usuário (UI/UX), sem depender de bibliotecas ou frameworks externos.
 
----
+## Demonstração e Deploy Online
 
-## 🚀 Funcionalidades
+A aplicação está disponível online através do GitHub Pages:
+[Acessar Media Player](https://xd-enrique.github.io/Media-Player)
 
-- 🎵 Reprodução de músicas com capa e título dinâmicos  
-- ⏯️ Botões de **Play/Pause**, **Próxima** e **Anterior**  
-- 📜 Playlist com **scroll automático** até a música atual  
-- 🎚️ Controle de **volume** e **linha do tempo interativa**  
-- ⏱️ Exibição do **tempo atual e total da faixa**  
-- 💿 Capa do álbum muda automaticamente conforme a faixa  
-- ⚙️ Feito com **JavaScript puro**, sem frameworks  
+![Media Player Preview](assets/img/readmeimg.png)
 
----
+## Funcionalidades Principais e Decisões Técnicas
 
-## 🗂️ Estrutura do Projeto
+* **Controles de Áudio Customizados:** Interface completa com botões nativos estilizados para Play/Pause, Mute, Avançar e Voltar.
+* **Navegação Baseada em Histórico (Pilhas):** Diferente de players convencionais que apenas seguem a ordem linear, este projeto implementa estruturas de dados em pilha (arrays `anterior` e `proximo`) para memorizar o histórico exato de navegação do usuário.
+* **Lógica de Duplo Clique (Debounce):** Implementação de um temporizador manual para diferenciar um clique simples (reiniciar a faixa atual) de um clique duplo (retornar à faixa anterior no histórico) no botão de controle.
+* **Playlist Dinâmica e Inteligente:** A lista de reprodução é gerada dinamicamente via JavaScript. O item em execução é destacado e a lista realiza uma rolagem automática (`scrollIntoView`) para manter a faixa atual sempre centralizada na visão do usuário.
+* **Persistência de Dados:** Utilização da API `localStorage` para salvar o volume anterior do usuário quando o player é silenciado, restaurando o valor exato de forma inteligente ao ser reativado.
+* **Interface e Inputs Customizados:** Barras de progresso e volume estilizadas nativamente usando pseudo-elementos CSS e variáveis CSS para representar visualmente a porcentagem atual da música de forma dinâmica.
 
-```
+## Estrutura do Projeto
+
+```text
 Media-Player/
 │
 ├── assets/
@@ -28,87 +29,48 @@ Media-Player/
 │   └── songs/         # Arquivos de áudio (NCS)
 │
 ├── css/
-│   └── style.css      # Estilos visuais
+│   └── style.css      # Estilos visuais globais e de componentes
 │
 ├── js/
-│   └── main.js        # Lógica do player
+│   └── main.js        # Lógica principal do player, eventos e estado
 │
-├── index.html         # Página principal
+├── index.html         # Estrutura semântica principal
 ├── README.md          # Documentação do projeto
 └── .gitattributes     # Configurações de versionamento
 ```
 
----
+## Tecnologias Utilizadas
 
-## 🧠 Tecnologias Utilizadas
+* HTML5 (Semântica e estruturação)
+* CSS3 (Custom Properties, Flexbox, Pseudo-elementos)
+* JavaScript / ES6+ (Audio API nativa, manipulação de eventos, manipulação de arrays)
 
-- **HTML5** — Estrutura e semântica  
-- **CSS3** — Estilização moderna e responsiva  
-- **JavaScript (Vanilla)** — Controle da playlist e interatividade  
-
----
-
-## 🖼️ Demonstração
-
-![Media Player Preview](assets/img/readmeimg.png)
-
----
-
-## 🔊 Créditos das Músicas (NCS)
-
-As faixas são de uso livre com créditos à [NoCopyrightSounds](https://ncs.io/):
-
-- **waera - harinezumi**  
-  [Download/Stream](http://ncs.io/harinezumi) | [YouTube](http://ncs.lnk.to/harinezumiAT/youtube)
-
-- **Carpe & Zachz Winner - wooyawooya**  
-  [Download/Stream](http://ncs.io/wooyawooya) | [YouTube](http://ncs.lnk.to/wooyawooyaAT/youtube)
-
-- **Mazare, DriveDrive! - Honest**  
-  [Download/Stream](http://ncs.io/honest) | [YouTube](http://ncs.lnk.to/honestAT/youtube)
-
-- **criticaleye, Shiro, dolshi - Echoes**  
-  [Download/Stream](http://ncs.io/ce_echoes) | [YouTube](http://ncs.lnk.to/ce_echoesAT/youtube)
-
-- **More Plastic - So Good**  
-  [Download/Stream](http://ncs.io/SoGood) | [YouTube](http://ncs.lnk.to/SoGoodAT/youtube)
-
-- **Youth - Stuck in my head**  
-  [Download/Stream](http://ncs.io/stuckinmyhead) | [YouTube](http://ncs.lnk.to/stuckinmyheadAT/youtube)
-
----
-
-## 💡 Como Usar
+## Instalação e Uso Local
 
 1. Clone o repositório:
    ```bash
    git clone https://github.com/XD-Enrique/Media-Player.git
    ```
-2. Abra o projeto no seu editor (VS Code recomendado).
-3. Inicie o player abrindo o arquivo:
-   ```
-   index.html
-   ```
-4. Toque as faixas, ajuste o volume e explore o visual ✨
+2. Abra o projeto em seu editor de código de preferência (VS Code recomendado).
+3. O projeto não requer nenhuma etapa de build ou instalação de dependências. Basta abrir o arquivo `index.html` em um navegador web moderno.
 
----
+## Créditos das Músicas (NCS)
 
-## 🌐 Deploy Online
+Para garantir o uso livre de direitos autorais, todas as faixas incluídas neste projeto são fornecidas pela [NoCopyrightSounds](https://ncs.io/):
 
-Você pode acessar o player diretamente pelo GitHub Pages:  
-[https://xd-enrique.github.io/Media-Player](https://xd-enrique.github.io/Media-Player)
+* **waera - harinezumi** [Download/Stream](http://ncs.io/harinezumi) | [YouTube](http://ncs.lnk.to/harinezumiAT/youtube)
+* **Carpe & Zachz Winner - wooyawooya** [Download/Stream](http://ncs.io/wooyawooya) | [YouTube](http://ncs.lnk.to/wooyawooyaAT/youtube)
+* **Mazare, DriveDrive! - Honest** [Download/Stream](http://ncs.io/honest) | [YouTube](http://ncs.lnk.to/honestAT/youtube)
+* **criticaleye, Shiro, dolshi - Echoes** [Download/Stream](http://ncs.io/ce_echoes) | [YouTube](http://ncs.lnk.to/ce_echoesAT/youtube)
+* **More Plastic - So Good** [Download/Stream](http://ncs.io/SoGood) | [YouTube](http://ncs.lnk.to/SoGoodAT/youtube)
+* **Youth - Stuck in my head** [Download/Stream](http://ncs.io/stuckinmyhead) | [YouTube](http://ncs.lnk.to/stuckinmyheadAT/youtube)
 
----
+## Autor
 
-## 🧑‍💻 Autor
+**Enrique Zoz de Souza**
+Estudante e entusiasta de tecnologia e programação.
+Perfil no [GitHub](https://github.com/XD-Enrique)
 
-**Enrique Zoz de Souza**  
-💼 Estudante e entusiasta de tecnologia e programação  
-📫 [GitHub](https://github.com/XD-Enrique)
+## Licença
 
----
-
-## ⚖️ Licença
-
-Este projeto é licenciado sob a [MIT License](LICENSE).  
-As músicas pertencem aos respectivos artistas sob licença **NCS Release**.
+As músicas pertencem aos respectivos artistas sob licença NCS Release.
