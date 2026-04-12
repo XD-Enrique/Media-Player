@@ -21,7 +21,6 @@ const playlist = [
 ];
 
 let clickTimer = null; // controlar dbclick
-
 // pilha para controlar músicas anteriores e próximas
 let anterior = [];
 let proximo = [];
@@ -91,7 +90,6 @@ prevBtn.addEventListener('click', () =>{
   if (clickTimer) {
     clearTimeout(clickTimer); // se ja tiver timer, duplo clique
     clickTimer = null;
-  
 //logica do pulo duplo
    const lastIndex = anterior.length - 1
    if (lastIndex >= 0) {
